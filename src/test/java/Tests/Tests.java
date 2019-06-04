@@ -25,9 +25,7 @@ public class Tests {
     @Before
     public void setUp() {
         System.setProperty("webdriver.chrome.driver", "D:\\chromedriver.exe");
-        //System.setProperty("webdriver.gecko.driver", "D:\\geckodriver.exe");
         WebDriver driver = new ChromeDriver();
-        //WebDriver driver = new FirefoxDriver();
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         driver.get("https://rozetka.com.ua/");

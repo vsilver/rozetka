@@ -19,14 +19,13 @@ public class HomePage {
         this.driver = driver;
     }
 
-    private By searchField = By.xpath("//div[@class='search__input-wrapper']//input[@class='search-form__input ng-pristine ng-valid ng-touched']");
+    private By searchField = By.xpath("//input[@name='search']");
     private By selectItem = By.xpath("//div[@class='search-suggest']/ul");
 
     public HomePage search(String wordforsearch){
-        WebDriverWait wait = new WebDriverWait(driver, 40);
+        WebDriverWait wait = new WebDriverWait(driver, 80);
         wait.until(ExpectedConditions.presenceOfElementLocated(searchField));
         driver.findElement(searchField).sendKeys(wordforsearch);
-        //driver.findElement(searchField).click();
         //Select select = new Select(selectItem);
         //select.selectByIndex(1);
         WebElement countryUL= driver.findElement(selectItem);
