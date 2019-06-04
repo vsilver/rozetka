@@ -15,12 +15,18 @@ public class HomePage {
         this.driver = driver;
     }
 
-    private By searchField = By.xpath("//input[contains((@name,’search’)]");
+    private By searchField = By.xpath("//div[@class='search__input-wrapper']//input[@class='search-form__input ng-pristine ng-valid ng-touched']");
 
     public HomePage search(String wordforsearch){
         WebDriverWait wait = new WebDriverWait(driver, 40);
         wait.until(ExpectedConditions.presenceOfElementLocated(searchField));
         driver.findElement(searchField).sendKeys(wordforsearch);
+        //driver.findElement(searchField).click();
+        return this;
+    }
+
+    public HomePage chooseDropDown(){
+
         return this;
     }
 

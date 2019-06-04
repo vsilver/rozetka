@@ -26,9 +26,9 @@ public class Tests {
     public void setUp() {
         System.setProperty("webdriver.chrome.driver", "D:\\chromedriver.exe");
         //System.setProperty("webdriver.gecko.driver", "D:\\geckodriver.exe");
-        driver = new ChromeDriver();
+        WebDriver driver = new ChromeDriver();
         //WebDriver driver = new FirefoxDriver();
-        driver.manage().timeouts().implicitlyWait(100, TimeUnit.MILLISECONDS);
+        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         driver.get("https://rozetka.com.ua/");
         homepage = new HomePage(driver);
@@ -40,6 +40,8 @@ public class Tests {
         homepage.search(wordforsearch);
 
     }
+
+
 
 
     @After
