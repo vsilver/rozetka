@@ -33,7 +33,7 @@ public class HomePage {
         List<WebElement> countriesList=countryUL.findElements(By.tagName("li"));
         for (WebElement li : countriesList) {
             //if (li.getText().equals("India (+91")) {
-            if(li.getAttribute())
+            if(li.getText().equals("iphone xr")){ //getAttribute('data-index')
                 li.click();
             }
         }

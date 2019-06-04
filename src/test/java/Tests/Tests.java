@@ -41,9 +41,6 @@ public class Tests {
 
     }
 
-
-
-
     @After
     public void closeConnect() throws Exception {
         driver.quit();
