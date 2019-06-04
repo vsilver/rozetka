@@ -1,5 +1,6 @@
 package Tests;
 
+import Pages.ProductPage;
 import org.junit.After;
 import org.junit.Test;
 import org.junit.Before;
@@ -8,8 +9,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import Pages.HomePage;
+import Pages.CategoryPage;
+import Pages.ProductPage;
 
 import java.util.concurrent.TimeUnit;
+
+import static javax.swing.text.html.HTML.Tag.P;
 import static org.junit.Assume.assumeTrue;
 import static org.junit.Assert.assertEquals;
 
@@ -17,6 +22,9 @@ public class Tests {
 
     private WebDriver driver;
     private HomePage homepage;
+    private CategoryPage categorypage;
+    private ProductPage productpage;
+
 
     private String wordforsearch;
 
@@ -30,13 +38,20 @@ public class Tests {
         driver.manage().window().maximize();
         driver.get("https://rozetka.com.ua/");
         homepage = new HomePage(driver);
+        categorypage = new CategoryPage(driver);
+        productpage = new ProductPage(driver);
     }
 
     @Test
     public void search(){
         wordforsearch = WORDFORSEARCH;
         homepage.search(wordforsearch);
+        homepage.chooseDropDown();
+    }
 
+    @Test
+    public void chooseIphone(){
+        
     }
 
     @After

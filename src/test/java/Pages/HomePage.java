@@ -15,34 +15,35 @@ import static org.junit.Assume.assumeTrue;
 public class HomePage {
     private WebDriver driver;
 
-    public HomePage (WebDriver driver) {
+    public HomePage(WebDriver driver) {
         this.driver = driver;
     }
 
     private By searchField = By.xpath("//input[@name='search']");
     private By selectItem = By.xpath("//div[@class='search-suggest']/ul");
 
-    public HomePage search(String wordforsearch){
+    public HomePage search(String wordforsearch) {
         WebDriverWait wait = new WebDriverWait(driver, 80);
         wait.until(ExpectedConditions.presenceOfElementLocated(searchField));
         driver.findElement(searchField).sendKeys(wordforsearch);
         //Select select = new Select(selectItem);
         //select.selectByIndex(1);
-        WebElement countryUL= driver.findElement(selectItem);
-        List<WebElement> countriesList=countryUL.findElements(By.tagName("li"));
+        return this;
+    }
+
+    public CategoryPage chooseDropDown() {
+
+        WebElement countryUL = driver.findElement(selectItem);
+        List<WebElement> countriesList = countryUL.findElements(By.tagName("li"));
         for (WebElement li : countriesList) {
-            //if (li.getText().equals("India (+91")) {
-            if(li.getText().equals("iphone xr")){ //getAttribute('data-index')
+            if (li.getText().equals("iphone xr")) {
                 li.click();
             }
         }
-        return this;
+        return new CategoryPage(driver);
     }
-
-    public HomePage chooseDropDown(){
-
-        return this;
-    }
-
-
 }
+
+
+
+
