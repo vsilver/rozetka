@@ -11,7 +11,7 @@ import Pages.HomePage;
 
 import java.util.concurrent.TimeUnit;
 import static org.junit.Assume.assumeTrue;
-//import static org.junit.Assert.
+import static org.junit.Assert.assertEquals;
 
 public class Tests {
 
