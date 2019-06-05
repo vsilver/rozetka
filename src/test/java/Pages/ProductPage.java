@@ -29,4 +29,11 @@ public class ProductPage {
         driver.findElement(addtobasket).click();
         return this;
     }
+
+    public ProductPage swithToPopup(){
+        String myWindowHandle = driver.getWindowHandle();
+        driver.switchTo().window(myWindowHandle);
+        return this;
+    }
+
 }

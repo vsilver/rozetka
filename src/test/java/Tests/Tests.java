@@ -48,9 +48,7 @@ public class Tests {
         wordforsearch = WORDFORSEARCH;
         homepage.search(wordforsearch);
         homepage.chooseDropDown();
-        categorypage.chooseRed();
-        productpage.changeColor();
-        productpage.addToBasket();
+        Assert.assertTrue(driver.getPageSource().contains("iphone xr"));
     }
 
     @Test
@@ -59,12 +57,17 @@ public class Tests {
         homepage.search(wordforsearch);
         homepage.chooseDropDown();
         categorypage.chooseRed();
-        Assert.assertEquals("Perficient Wiki", driver.getTitle());
+        Assert.assertTrue(driver.getPageSource().contains("Apple iPhone Xr 128GB Red (MRYE2)"));
     }
 
     @Test
     public void changeColor(){
-
+        wordforsearch = WORDFORSEARCH;
+        homepage.search(wordforsearch);
+        homepage.chooseDropDown();
+        categorypage.chooseRed();
+        productpage.changeColor();
+        Assert.assertTrue(driver.getPageSource().contains("iPhone Xr 128GB Blue (MRYH2)"));
     }
 
     @Test
@@ -75,7 +78,8 @@ public class Tests {
         categorypage.chooseRed();
         productpage.changeColor();
         productpage.addToBasket();
-
+        productpage.swithToPopup();
+        Assert.assertTrue(driver.getPageSource().contains("Вы добавили товар в корзину"));
     }
 
     @After
