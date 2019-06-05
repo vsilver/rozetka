@@ -1,6 +1,9 @@
 package Pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ProductPage {
 
@@ -10,4 +13,20 @@ public class ProductPage {
         this.driver = driver;
     }
 
+    private By changecolor = By.xpath("//span[@class='variants-i-icon ng-star-inserted' and style='background-color: rgb(51, 51, 255)']");
+    private By addtobasket = By.xpath("//button[@class='btn-link-i' and contains(text(), 'Купить')]");
+
+    public ProductPage changeColor(){
+        WebDriverWait wait = new WebDriverWait(driver, 80);
+        wait.until(ExpectedConditions.presenceOfElementLocated(changecolor));
+        driver.findElement(changecolor).click();
+        return this;
+    }
+
+    public ProductPage addToBasket(){
+        WebDriverWait wait = new WebDriverWait(driver, 80);
+        wait.until(ExpectedConditions.presenceOfElementLocated(addtobasket));
+        driver.findElement(addtobasket).click();
+        return this;
+    }
 }

@@ -33,6 +33,8 @@ public class HomePage {
 
     public CategoryPage chooseDropDown() {
 
+        WebDriverWait wait = new WebDriverWait(driver, 80);
+        wait.until(ExpectedConditions.presenceOfElementLocated(selectItem));
         WebElement countryUL = driver.findElement(selectItem);
         List<WebElement> countriesList = countryUL.findElements(By.tagName("li"));
         for (WebElement li : countriesList) {
