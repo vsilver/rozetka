@@ -2,21 +2,22 @@ package Tests;
 
 import Pages.ProductPage;
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
 import Pages.HomePage;
 import Pages.CategoryPage;
-import Pages.ProductPage;
 
 import java.util.concurrent.TimeUnit;
 
-import static javax.swing.text.html.HTML.Tag.P;
-import static org.junit.Assume.assumeTrue;
+import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import static sun.java2d.cmm.ColorTransform.In;
+
 
 public class Tests {
 
@@ -47,11 +48,34 @@ public class Tests {
         wordforsearch = WORDFORSEARCH;
         homepage.search(wordforsearch);
         homepage.chooseDropDown();
+        categorypage.chooseRed();
+        productpage.changeColor();
+        productpage.addToBasket();
     }
 
     @Test
     public void chooseIphone(){
-        
+        wordforsearch = WORDFORSEARCH;
+        homepage.search(wordforsearch);
+        homepage.chooseDropDown();
+        categorypage.chooseRed();
+        Assert.assertEquals("Perficient Wiki", driver.getTitle());
+    }
+
+    @Test
+    public void changeColor(){
+
+    }
+
+    @Test
+    public void addToBusket(){
+        wordforsearch = WORDFORSEARCH;
+        homepage.search(wordforsearch);
+        homepage.chooseDropDown();
+        categorypage.chooseRed();
+        productpage.changeColor();
+        productpage.addToBasket();
+
     }
 
     @After
